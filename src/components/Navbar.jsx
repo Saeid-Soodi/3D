@@ -19,9 +19,28 @@ const Navbar = () => {
           window.scrollTo(0,0);
         }}
         >
-          <img src={logo} alt="logo"
-          className="w-4 h-9 object-contain"/>
+           <img src={logo} alt="logo"
+          className="w-9 h-9 object-contain"/>
+          <p className="text-white text-[18px]
+           font-bold cursor-pointer">Saeed<span
+          className="sm:block hidden">| JavaScript
+           Mastery</span></p>
         </Link>
+        <ul className="list-none hidden sm:flex
+         flex-row gap-10">
+          {navLinks.map((Link)=>(
+            <li
+            key={Link.id}
+            className={`${
+              active===Link.title
+              ?"text-white":"text-secondary"
+            } hover:text-white text-[18px] font-medium`}
+            onClick={()=>setActive(Link.title)}
+            >
+              <a href={`#${Link.id}`}>{Link.title}</a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   )
