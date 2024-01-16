@@ -1,0 +1,16 @@
+Vite App:
+npm create vite@latest my-react-app -- --template react
+npm install 
+npm run dev
+
+Tailwind CSS:
+npm install tailwindcss
+npx tailwindcss init
+
+some packages are:
+npm install --legacy-peer-deps @react-three/fiber @react-three/drei maath react-tilt react-vertical-timeline-component @emailjs/browser framer-motion react-router-dom
+
+not working Vite +Tailwind
+npm install --legacy-peer-deps -D postcss autoprefixer
+npx tailwindcss init -p
+npm run dev
