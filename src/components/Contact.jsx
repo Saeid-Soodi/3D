@@ -5,6 +5,8 @@ import Emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import {EarthCanvas} from './canvas'
 import { slideIn } from "../utils/motion";
+//template_wihhut6  service_mvbbfqk  ELvZ9McvNllvsWoF-
+
 const Contact = () => {
   const formRef = useRef();
   const[form ,setForm] = useState({
@@ -14,9 +16,38 @@ const Contact = () => {
   });
   const[loading ,setLoading] = useState(false);
 
-  const handleChange =(e)=>{} 
-
-  const handleSubmit = (e)=>{} 
+  const handleChange =(e)=>{
+    const {name ,value} =e.target;
+    setForm({...form ,[name]:value})
+  } 
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    setLoading(true);
+    Emailjs.send('service_mvbbfqk' ,
+                  'template_wihhut6',
+                  {
+                    from_name:form.name,
+                    to_name:'Saeed',
+                    from_email:form.email,
+                    to_email:'saeid.soodi@gmail.com',
+                    message:form.message,
+                  },
+                    'ELvZ9McvNllvsWoF-'
+                  )
+                  .then(()=>{
+                    setLoading(false)
+                    alert(`Thanks ${form.name}. I will get back to you as soon as possible.`);
+                    setForm({
+                      name:'',
+                      email:'',
+                      message:'',
+                    })
+                  },(error)=>{
+                    setLoading(false)
+                    console.log(error)
+                    alert('something is wrong.')
+                  })
+  } 
    return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div
