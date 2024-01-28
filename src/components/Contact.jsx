@@ -65,7 +65,14 @@ const Contact = () => {
           text-white rounded-lg outline-none border-none font-medium "
           />
           </label>
+        <button
+        type="submit"
+        className="bg-tertiary py-3 px-8 outline-none
+       font-bold w-fit text-white shadow-md rounded-xl shadow-primary"
+        >
+          {loading ?'sending ...':'send'}
 
+        </button>
         </form>
       </motion.div>
     </div>
